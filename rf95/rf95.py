@@ -512,6 +512,10 @@ class RF95:
         data = self.buf
         self.clear_rx_buf()
         return data
+    
+    def rssi(self):
+        rssi = self.last_rssi
+        return rssi
 
     # cleans all GPIOs, etc
     def cleanup(self):
