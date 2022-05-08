@@ -25,6 +25,8 @@ def storeID(data):
 def sendtohabitat(message):
     HOST = '10.10.10.2'
     PORT = 50007
+    message =message.split(':')
+    message = message[0]+':/'+message[1]
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST,PORT))
     s.send(message.encode())

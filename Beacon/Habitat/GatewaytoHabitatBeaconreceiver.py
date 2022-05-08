@@ -9,17 +9,19 @@ s.bind((HOST, PORT))
 s.listen(10)
 
 while True:
-    df = pd.read_csv("Enddeviceroute.csv",sep=' ',header=None)
+    df = pd.read_csv("Enddeviceroute.csv",sep=':',header=None)
     df.columns=['Gateway','Enddevice','Rssi']
     #print(df)
     conn, addr = s.accept()
-    print('Connected by', addr)
+    
     data = conn.recv(4096).decode()
-    data = data.split(':')
+    
+    data = data.split(':/')
     if "ID" in data[0]:
         print(data[0]+':'+data[1])
     else:
         enddevices = data[1].split(';')
+        print('Connected by', addr)
         for i in range(0,len(enddevices)):
             if(enddevices[i]!=''):
                 enddevices[i] = enddevices[i].replace('[','')
