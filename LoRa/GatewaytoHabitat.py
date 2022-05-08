@@ -13,15 +13,14 @@ def storeID(data):
     df.columns=['Enddevice','Rssi']
     data = data.split(':')
     if(df["Enddevice"].equals(data[0]))==True:
-        df["Rssi"]=np.where((df["Enddevice"]==data[0]),df["Rssi"])
+        df["Rssi"]=np.where((df["Enddevice"]==data[0]),data[1],df["Rssi"])
     else:
         df2 = pd.DataFrame({"Enddevice":[data[0]],"Rssi":[data[1]]})
         df=pd.concat([df,df2],ignore_index = True,axis=0)
-    df.drop_duplicates(subset=['Enddevice','Rssi'],keep='last', inplace=True)
+    df.drop_duplicates(subset=['Enddevice'],keep='last', inplace=True)
     if DEBUG:
         print(df)
     df.to_csv('Enddeviceroute.csv',sep=':',header=False, index=False)
-
 # Function to send message to the Habitat
 def sendtohabitat(message):
     HOST = '10.10.10.2'
@@ -53,18 +52,19 @@ while True:
         pass
     # Receive
     data = lora.recv()
-    data=data.split(':')
-
+    #data=data.split(':')
+    data = bytes(data)
+    data = data.decode('utf-8')
+    data = data.split(':')
+    
     # RSSI
     rssi = str(lora.rssi())
 
-    # data decode
-    data1 = bytes(data[1] +':'+ rssi)
-    data2 = data1.decode('utf-8')
-    
+    # data arrangement
+    data1 = data[1] +':'+ rssi
+
     #Store ID and RSSI
-    storeID(data2)
-    
+    storeID(data1)
     
     if data[0]=='B':
         if DEBUG:
@@ -73,8 +73,7 @@ while True:
     elif data[0]=='D':
         if DEBUG:
             print('Data Received')
-        senddata = bytes(data[1]+':'+data[2])
-        message = senddata.decode('utf-8')
+        message = data[1]+':'+data[2]
         sendtohabitat(message)
 
     time.sleep(0.1)
