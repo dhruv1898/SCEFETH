@@ -197,3 +197,21 @@ The source code to be installed on the Habitat, Gateways and the End Devices can
 ```
 pip install ntplib
 ```
+After successful installation now to perform the E2H communication run the following commands:
+- On the habitat
+```
+python Habitat_E2H.py
+```
+- On the gateway
+```
+python G_E2H.py
+```
+For the H2E communication run the following commands:
+- On the habitat
+```
+python Habitat_H2E.py
+```
+- On the gateway
+```
+python G_H2E.py
+```
