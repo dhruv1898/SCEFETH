@@ -193,7 +193,7 @@ Table below shows the pin connection of the Dragino\_v1.4 shield with the raspbe
 |GND			|6			|-			|
 #### Setup of the devices
 The image below shows the collage of some of the end-devices, gateways and the habitat used in the experiment.
-!(https://github.com/dhruv1898/SCEFETH/tree/main/Setup%20image)
+![Alt text](https://github.com/dhruv1898/SCEFETH/tree/main/Setup%20image)
 ### Source Code installation and time synchronization of the network
 The source code to be installed on the Habitat, Gateways and the End Devices can be found on [Github](https://github.com/dhruv1898/SCEFETH/tree/FINAL/Testing/Multihop\%20Test). The gateway clocks are synchronized with the Habitat using ntplib python library and can be installed using the following command:
 ```
