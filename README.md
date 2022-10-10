@@ -185,10 +185,10 @@ Table below shows the pin connection of the Dragino\_v1.4 shield with the raspbe
 |-----------------------|-----------------------|-----------------------|
 |Reset		   	|11		     	|17			|
 |DIO0 (interrupt pin)	|22		     	|25			|
-|MOSI - 37		|19		     	|-			|
-|MISO - 33		|21			|-			|
-|SCLK - 34		|23			|-			|
-|CS - 10		|24			|-			|
+|MOSI - 37		|19		     	|10			|
+|MISO - 33		|21			|9			|
+|SCLK - 34		|23			|11			|
+|CS - 10		|24			|8			|
 |3V3 - power		|1			|-			|
 |GND			|6			|-			|
 #### Setup of the devices
