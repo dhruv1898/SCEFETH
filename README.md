@@ -180,7 +180,7 @@ opkg install kmod-spi-bcm2835
 opkg install kmod-spi-dev
 ```
 ### Pin connection of Dragino\_v1.4 with RPi 2
-Table (?) shows the pin connection of the Dragino\_v1.4 shield with the raspberry pi 2.
+Table below shows the pin connection of the Dragino\_v1.4 shield with the raspberry pi 2.
 |**Dragino\_v1.4** 	| **Raspberry Pi 2** 	| **BCM Pin mapping**	|
 |-----------------------|-----------------------|-----------------------|
 |Reset		   	|11		     	|17			|
@@ -211,7 +211,11 @@ For the H2E communication run the following commands:
 ```
 python Habitat_H2E.py
 ```
-- On the gateway
+- On the gateway for time-synchronization 
+```
+python G_H2E_Time_sync.py
+```
+On the gateway for H2E comunication
 ```
 python G_H2E.py
 ```
