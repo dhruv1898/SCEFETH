@@ -99,7 +99,27 @@ def calculate_delay(dfh,dfg,dfe,Enddeviceid,GatewayIP):
 # Plot delay results for each-device
 
 def plot_delay_and_delratio(h2e_delay,h2g_delay,g2e_delay,h2e_delratio,Enddevices,Gateways):
-    width = 0.3
+    
+
+    labels = ['ID001', 'ID002', 'ID003', 'ID004']
+    x = np.arange(len(labels))  
+    width = 0.11
+    h2g = plt.bar(x - 2*width, h2g_delay,width,label="H2G",zorder=3)
+    g2e = plt.bar(x, g2e_delay,width,label="G2E",zorder=3)
+    h2e = plt.bar(x + 2*width, h2e_delay,width,label="H2E",zorder=3)
+    plt.bar_label(h2g, padding=3, rotation = 0, fontsize=24)
+    plt.bar_label(g2e, padding=3, rotation = 0, fontsize=24)
+    plt.bar_label(h2e, padding=3, rotation = 0, fontsize=24)
+    plt.semilogy()
+    plt.xticks(x,labels,fontsize=26)
+    plt.yticks(fontsize=26)
+    plt.ylabel('Delay (in sec.)', fontsize=26)
+    plt.xlabel('End-device', fontsize=26)
+    plt.grid(which='both',linestyle='-',color='0.8')
+    plt.legend(fontsize=26)
+    plt.tight_layout()
+    plt.show()
+    plt.close()
 
     e1_h2g_delay = plt.bar(Gateways[0], h2g_delay[0],width,label=Enddevices[0])
     e2_h2g_delay = plt.bar(Gateways[1], h2g_delay[1],width,label=Enddevices[1])
@@ -116,6 +136,8 @@ def plot_delay_and_delratio(h2e_delay,h2g_delay,g2e_delay,h2e_delratio,Enddevice
     plt.legend(fontsize=20)
     plt.show()
     plt.close()
+
+    width = 0.3
 
     e1_g2e_delay = plt.bar(Gateways[0], g2e_delay[0],width,label=Enddevices[0])
     e2_g2e_delay = plt.bar(Gateways[1], g2e_delay[1],width,label=Enddevices[1])
@@ -153,14 +175,14 @@ def plot_delay_and_delratio(h2e_delay,h2g_delay,g2e_delay,h2e_delratio,Enddevice
     e2_h2e_delratio = plt.bar(Gateways[1], h2e_delratio[1],width,label=Enddevices[1])
     e3_h2e_delratio = plt.bar(Gateways[2], h2e_delratio[2],width,label=Enddevices[2])
     e4_h2e_delratio = plt.bar(Gateways[3], h2e_delratio[3],width,label=Enddevices[3])
-    plt.bar_label(e1_h2e_delratio, padding=3, rotation = 0, fontsize=20)
-    plt.bar_label(e2_h2e_delratio, padding=3, rotation = 0, fontsize=20)
-    plt.bar_label(e3_h2e_delratio, padding=3, rotation = 0, fontsize=20)
-    plt.bar_label(e4_h2e_delratio, padding=3, rotation = 0, fontsize=20)
-    plt.title('Delivery Ratio for each end-device in H2E communication', fontsize=20)
-    plt.legend(fontsize=20)
-    plt.xticks(fontsize=20)
-    plt.yticks(fontsize=20)
+    plt.bar_label(e1_h2e_delratio, padding=3, rotation = 0, fontsize=26)
+    plt.bar_label(e2_h2e_delratio, padding=3, rotation = 0, fontsize=26)
+    plt.bar_label(e3_h2e_delratio, padding=3, rotation = 0, fontsize=26)
+    plt.bar_label(e4_h2e_delratio, padding=3, rotation = 0, fontsize=26)
+    # plt.title('Delivery Ratio for each end-device in H2E communication', fontsize=26)
+    plt.legend(fontsize=26)
+    plt.xticks(fontsize=26)
+    plt.yticks(fontsize=26)
     plt.show()
     plt.close()
 #####################################################################################################
