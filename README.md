@@ -1,16 +1,11 @@
 # About SCEFETH
+
 Future extraterrestrial human activities, e.g. on
-Mars and Moon will pose several challenges such as transporta-
-tion, self-sustainable habitat, Earth-to-habitat communication,
-the safety of the astronauts and probes outside the habitat, as well
-as the communication between the astronauts and the habitat. We
-propose a solution for the communication between the astronauts
-and the habitat using LoRa and IEEE802.11s using OLSR, a
-proactive Ad-Hoc network routing protocol to implement on the
-Wi-Fi network between the gateways and the habitat to ensure
-frequent and reliable communication between the end-devices
-and the habitat. The initial results of our proposed solution show
-a viable option for future Human colonies on Mars
+Mars and Moon will pose several challenges such as transportation, self-sustainable habitat, Earth-to-habitat communication, the safety of the astronauts 
+and probes outside the habitat, as well as the communication between the astronauts and the habitat. We propose a solution for the communication between 
+the astronauts and the habitat using LoRa and IEEE802.11s using OLSR, a proactive Ad-Hoc network routing protocol to implement on the
+Wi-Fi network between the gateways and the habitat to ensure frequent and reliable communication between the end-devices
+and the habitat. The initial results of our proposed solution show a viable option for future Human colonies on Mars.
 
 
 # Installation instructions
